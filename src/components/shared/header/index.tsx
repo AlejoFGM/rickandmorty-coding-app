@@ -25,7 +25,7 @@ const Header = () => {
         <div className={styles.brand}>
           <span>Rick and Morty</span>
         </div>
-        <div>
+        <div className={styles.logout}>
           <Button
             name={token.token ? "Characters" : "Login"}
             onClick={() => navigate("/")}

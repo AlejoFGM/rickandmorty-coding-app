@@ -53,7 +53,7 @@ const Characters = () => {
           }}
         ></Button>
       </div>
-      <div>{dataToMap}</div>
+      <div className={styles.containerCards}>{dataToMap}</div>
       <div>
         <Button
           name="Prev page"

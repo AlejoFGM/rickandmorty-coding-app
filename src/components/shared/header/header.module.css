@@ -25,11 +25,6 @@ header {
     font-weight: 600;
 }
 
-.navbar {
-    display: flex;
-    align-items: center;
-}
-
 .logout button {
     color: white;
 }
