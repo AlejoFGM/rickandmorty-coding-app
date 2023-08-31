@@ -5,6 +5,7 @@ import "./index.css";
 import Input from "./components/pages/login";
 import reportWebVitals from "./reportWebVitals";
 import store from "./redux/store";
+import Signup from "./components/pages/signup";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -12,7 +13,8 @@ const root = ReactDOM.createRoot(
 root.render(
   <Provider store={store}>
     <React.StrictMode>
-      <Input />
+      {/* <Input /> */}
+      <Signup />
     </React.StrictMode>
   </Provider>
 );
