@@ -1,26 +1,30 @@
-import React from "react";
-import firebaseApp from "../../../helpers/firebase";
-import Button from "../../shared/button";
-import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import styles from "./characters.module.css";
+import Card from "../../shared/card";
 
-function Characters() {
-  const navigate = useNavigate();
+const Characters = () => {
+  const [data, setData] = useState([]);
 
-  const handleLogout = async () => {
-    try {
-      navigate("/");
-      await firebaseApp.auth().signOut();
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  useEffect(() => {
+    const url = `${process.env.REACT_APP_API_URL}/characters/name`;
+    axios
+      .get(url)
+      .then((response) => {
+        setData(response.data.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
 
+  const dataToMap = data.map((character) => <Card data={character} />);
   return (
-    <div className="App">
-      <p>characters</p>
-      <Button onClick={handleLogout} name="Logout" />
+    <div className={styles.container}>
+      <h3>Characters</h3>
+      <div>{dataToMap}</div>
     </div>
   );
-}
+};
 
 export default Characters;
