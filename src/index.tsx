@@ -2,20 +2,21 @@ import React from "react";
 import { Provider } from "react-redux";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import Input from "./components/pages/login";
 import reportWebVitals from "./reportWebVitals";
 import store from "./redux/store";
-import Signup from "./components/pages/signup";
+import { BrowserRouter } from "react-router-dom";
+import AppRoutes from "./routes";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <Provider store={store}>
-    <React.StrictMode>
-      {/* <Input /> */}
-      <Signup />
-    </React.StrictMode>
+    <BrowserRouter>
+      <React.StrictMode>
+        <AppRoutes />
+      </React.StrictMode>
+    </BrowserRouter>
   </Provider>
 );
 

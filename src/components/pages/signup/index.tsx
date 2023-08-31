@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import Button from "../../shared/button";
-import { login } from "../../../redux/auth/thunk";
 import { AppDispatch } from "../../../types";
-import { RootState, useAppSelector } from "../../../redux/store";
 import { useDispatch } from "react-redux";
 
 import styles from "./signup.module.css";
