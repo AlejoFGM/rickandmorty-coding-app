@@ -19,25 +19,31 @@ const Header = () => {
     }
   };
 
+  console.log(token);
+
   return (
     <header>
       <div className={styles.container}>
         <div className={styles.brand}>
           <span>Rick and Morty</span>
         </div>
-        <div className={styles.logout}>
-          <Button
-            name={token.token ? "Characters" : "Login"}
-            onClick={() => navigate("/")}
-          />
-          <Button
-            name={token.token ? "Favorites" : "Register"}
-            onClick={() => navigate(token.token ? "/" : "/register")}
-          />
-        </div>
-        <div className={styles.logout}>
-          <Button name="Logout" onClick={handleLogout} />
-        </div>
+        {!token.token ? (
+          <div className={styles.logout}>
+            <Button
+              name={token.token ? "Characters" : "Login"}
+              onClick={() => navigate("/")}
+            />
+            <Button
+              name={token.token ? "Favorites" : "Register"}
+              onClick={() => navigate(token.token ? "/" : "/register")}
+            />
+          </div>
+        ) : null}
+        {token.token ? (
+          <div className={styles.logout}>
+            <Button name="Logout" onClick={handleLogout} />
+          </div>
+        ) : null}
       </div>
     </header>
   );

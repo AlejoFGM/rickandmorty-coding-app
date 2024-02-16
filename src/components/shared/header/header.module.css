@@ -8,7 +8,7 @@ header {
     justify-content: space-between;
     height: 40px;
     padding: 10px;
-    background-color: #373867;
+    background-color: #5585b5;
 }
 
 .brand {
@@ -26,5 +26,7 @@ header {
 }
 
 .logout button {
-    color: white;
+    color: #5585b5;
+    background-color: white;
+    margin: 10px;
 }

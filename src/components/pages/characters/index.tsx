@@ -33,41 +33,45 @@ const Characters = () => {
   return (
     <div className={styles.container}>
       <h3>Characters</h3>
-      <div>
-        <Button
-          name="Name"
-          onClick={() => {
-            setSort("name");
-          }}
-        ></Button>
-        <Button
-          name="Planet"
-          onClick={() => {
-            setSort("planet");
-          }}
-        ></Button>
-        <Button
-          name="Gender"
-          onClick={() => {
-            setSort("gender");
-          }}
-        ></Button>
-      </div>
+      {data.length ? (
+        <div className={styles.buttonsContainer}>
+          <Button
+            name="Name"
+            onClick={() => {
+              setSort("name");
+            }}
+          ></Button>
+          <Button
+            name="Planet"
+            onClick={() => {
+              setSort("planet");
+            }}
+          ></Button>
+          <Button
+            name="Gender"
+            onClick={() => {
+              setSort("gender");
+            }}
+          ></Button>
+        </div>
+      ) : null}
       <div className={styles.containerCards}>{dataToMap}</div>
-      <div>
-        <Button
-          name="Prev page"
-          onClick={() => {
-            page > 1 && setPage(page - 1);
-          }}
-        ></Button>
-        <Button
-          name="Next page"
-          onClick={() => {
-            page < 43 && setPage(page + 1);
-          }}
-        ></Button>
-      </div>
+      {data.length ? (
+        <div className={styles.buttonsContainer}>
+          <Button
+            name="Prev page"
+            onClick={() => {
+              page > 1 && setPage(page - 1);
+            }}
+          ></Button>
+          <Button
+            name="Next page"
+            onClick={() => {
+              page < 43 && setPage(page + 1);
+            }}
+          ></Button>
+        </div>
+      ) : null}
     </div>
   );
 };
